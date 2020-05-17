@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-mongoose.connect("mongodb://sebola:s3b0l4123@ds119652.mlab.com:19652/sebola", { useUnifiedTopology: true }, (err) => {
+mongoose.connect("mongodblogin aqui", { useUnifiedTopology: true }, (err) => {
     if (err) return console.log(err)
     console.log('Conectado ao database!')
 })
