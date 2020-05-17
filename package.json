@@ -1,0 +1,22 @@
+{
+    "name": "project-a",
+    "version": "1.0.0",
+    "description": "Um simples bot para o discord.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node shard.js"
+    },
+    "author": "Sebola",
+    "license": "Unlicense",
+    "dependencies": {
+        "bufferutil": "^4.0.1",
+        "cleverbot-node": "^0.3.11",
+        "discord.js": "^11.6.2",
+        "jimp": "^0.9.3",
+        "moment": "^2.24.0",
+        "mongoose": "^5.8.9",
+        "node-osu": "^2.2.0",
+        "os-utils": "0.0.14",
+        "weather-js": "^2.0.0"
+    }
+}
