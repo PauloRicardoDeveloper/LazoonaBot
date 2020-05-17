@@ -1,0 +1,2 @@
+# LazoonaBot
+Lazoona discord bot!
