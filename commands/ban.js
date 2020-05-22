@@ -4,13 +4,13 @@ module.exports = {
     Comando: "ban",
     help: {
         desc: "Bane o usuário mencionado",
-        exemplo: config.prefix + "k!ban @user (motivo)",
+        exemplo: config.prefix + "ban @user (motivo)",
     },
     run: (bot, message, args) => {
         if (message.member.permissions.has('BAN_MEMBERS', true)) {
             let reason = args.slice(1).join(' ');
-            if (message.mentions.members.size < 1) return message.reply("`Erro 401` **| Mencione o membro. Ex: k!ban @membro**");
-            let memberUser = message.guild.members.get(message.mentions.users.first().id)
+            if (message.mentions.members.size < 1) return message.reply("`Erro 401` **| Mencione o membro. Ex: la/ban @membro**");
+            let memberUser = message.guild.members.cache.get(message.mentions.users.first().id)
             if (memberUser) {
                 if (!memberUser.bannable) return message.reply("`Erro 403` **| Esse Usuário não pode ser banido.**")
                 if (memberUser.highestRole && message.member.highestRole) {

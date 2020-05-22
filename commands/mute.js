@@ -5,19 +5,19 @@ exports.run = async(bot, message, args) => {
 
     if (message.member.permissions.has('MANAGE_ROLES', true)) {
         const mod = message.author;
-        let user = message.guild.member(message.mentions.members.first() || message.guild.members.get(args[0]));
+        let user = message.guild.members.cache.find(member => message.mentions.members.first([1])) || message.guild.members.cache.get(args[0]);
         if (!user) return message.reply("`Erro 404` **| O usuário não foi encontrado. __Tente novamente__ mas mencione um __usuário válido__.**")
         let reason = message.content.split(" ").slice(2).join(" ");
-        if (!reason) reason = "não foi dado um motivo!";
-        let muterole = message.guild.roles.find(`name`, "Mutado // kaori-bot");
+        if (!reason) reason = "Não foi dado um motivo!";
+        let muterole = message.guild.roles.cache.find(role => role.name == "Membro Silenciado");
         if (args[0] == "help") {
-            message.reply("Digite: k!mute <usuario> <motivo>");
+            message.reply("Digite: la/mute <usuario> <motivo>");
             return;
         }
         if (!muterole) {
             try {
-                muterole = await message.guild.createRole({
-                    name: "Mutado // kaori-bot",
+                muterole = await message.guild.roles.create({
+                    name: "Membro Silenciado",
                     color: "#000000",
                     permissions: []
                 })
@@ -28,7 +28,7 @@ exports.run = async(bot, message, args) => {
                     });
                 });
             } catch (e) {
-                console.log(e.stack);
+                console.log(e.code);
             }
         }
 
@@ -37,7 +37,7 @@ exports.run = async(bot, message, args) => {
         let mutedavatar = (bot.user.avatarURL)
 
         await (user.addRole(muterole.id));
-        const muteembed = new Discord.RichEmbed()
+        const muteembed = new Discord.MessageEmbed()
             .setAuthor('✅ Sucesso!')
             .setDescription(`O usuário ${user} foi mutado com sucesso!`)
             .addField('**Usuário:**', `${user}`)

@@ -1,10 +1,16 @@
-const Discord = require("discord.js");
+const discord = require('discord.js')
+const config = require('../config.json')
 
-exports.run = (bot, message, args, func, author) => {
-    const botinfo = new Discord.RichEmbed()
-        .setTitle('Sobre mim.', `${bot.user.avatarURL}`)
-        .setDescription('Olá, eu sou a Kaori! Uma garota para manter seu servidor sempre organizado. Originalmente criada em JavaScript usando a Discord.js, pelo Sebola#3461 e pelo Mare#2519 com o intúito de ajudar e manter seu servidor animado e em ordem. Sou um projeto BETA, mas se você acha que eu tenho potêncial para administrar seu servidor, me indique aos seus amigos!')
-        .setFooter('Kaori bot')
+exports.run = (bot, message, args, func) => {
+    const embed = new discord.MessageEmbed()
+        .setAuthor('Minhas Informações:')
+        .addField('🛠 **Meu Repositório**', '[GitHub](https://github.com/PauloRicardoDeveloper/LazoonaBot)')
+        .addField('🗜 **Versão atual**', config.version)
+        .addField('🗃 **Library**', 'Discord.js')
+        .addField('📦 **Dependências**', 'discord.js, moment-js, mongoose, expressjs')
+        .addField('👥 **Usuários**', bot.users.cache.size)
+        .addField('💬 **Servidores**', bot.guilds.cache.size)
+        .setTimestamp()
         .setColor('RANDOM')
-    message.channel.send(botinfo)
+    message.channel.send(embed)
 }

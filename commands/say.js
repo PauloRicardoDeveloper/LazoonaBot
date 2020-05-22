@@ -1,8 +1,14 @@
 const Discord = require("discord.js");
 
-exports.run = (bot, message, args, func) => {
+exports.run = (bot, message, args, func, cmd) => {
     if (args[0] == null) {
-        message.reply('`Erro 401` **| Informe o que eu irei dizer.**')
+      const erro = new Discord.MessageEmbed()
+        .setTitle("Algo deu errado!")
+        .setDescription("Você esqueceu de informar o que eu vou dizer! Veja abaixo, alguns exemplos de como usar o comando `Say`")
+        .addField('**Sintaxe:**', 'la/say `Mensagem`')
+        .addField('**Exemplos**', 'la/say `Eu sou muito fofa :3`')
+        .setColor('#2A1250')
+        message.channel.send(erro)
     } else if (args[0] != 0) {
         const sayMessage = (args.join(" "))
         const m = (sayMessage.replace("Sebola", `<@${message.author.id}>`).replace("sebola", `<@${message.author.id}>`))

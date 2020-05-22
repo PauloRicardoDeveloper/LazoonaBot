@@ -14,29 +14,30 @@ exports.run = (bot, message, args) => {
         if (documento) {
 
             if (!razaou.length < 1) {
-                if (message.content.startsWith("k!bemvindo set")) {
+                if (message.content.startsWith("la/bemvindo set")) {
                     if (!razaod.length < 1) {
-                        documento.welcomechannel = message.channel.id
-                        documento.welcomemsg = message.content.replace("k!bemvindo set ", "");
-                        documento.welcome = true
+                        let wcid = message.mentions.channels.first();
+                      //  documento.welcomechannel = message.mentions.channels.id;
+                        documento.welcomemsg = message.content.replace("la/bemvindo set ", "");
+                        documento.welcome = true;
                         documento.save()
-                        const passembed = new Discord.RichEmbed()
+                        const passembed = new Discord.MessageEmbed()
                             .setAuthor('✅ Sucesso!')
                             .setDescription('A mensagem de boas vindas foi __definida com sucesso__!')
-                            .addField('**Canal selecionado:**', `<#${documento.welcomechannel}>`)
+                            .addField('**Canal selecionado:**', `Nenhum, use la/bemvindo channel set`)
                             .addField('**Mensagem:**', documento.welcomemsg)
                         message.reply(passembed);
 
                     } else {
-                        const errpembed = new Discord.RichEmbed()
+                        const errpembed = new Discord.MessageEmbed()
                             .setAuthor('👋 • Boas Vindas')
                             .setDescription('**Você não informou a mensagem de despedida.**')
                             .addField('**Código de erro:**', '400')
-                            .addField('**Como usar:**', 'Use k!bemvindo set `Sua mensagem de despedida`')
-                            .addField('**Exemplo**', 'k!despedida set Olá {member}, seja bem vindo ao {guild}!')
+                            .addField('**Como usar:**', 'Use la/bemvindo set `Sua mensagem de despedida`')
+                            .addField('**Exemplo**', 'la/despedida set Olá {member}, seja bem vindo ao {guild}!')
                         message.reply(errpembed)
                     }
-                } else if (message.content.startsWith("k!bemvindo remove")) {
+                } else if (message.content.startsWith("la/bemvindo remove")) {
                     if (!documento.welcome) {
                         message.reply("`Erro 400` | **Não há uma message de despedida definida neste servidor!**");
                     } else {
@@ -46,10 +47,13 @@ exports.run = (bot, message, args) => {
                         documento.save()
                         message.reply("✅ **| Sucesso! A mensagem de boas vindas foi removida com sucesso!**");
                     }
-                } else if (message.content.startsWith("k!bemvindo info")) {
+                } else if (message.content.startsWith("la/bemvindo channel set")){
+                  documento.welcomechannel = message.mentions.channels.first().id;
+                  message.reply("canal definido ".concat(`<#${documento.welcomechannel}>`) )
+                } else if (message.content.startsWith("la/bemvindo info")) {
                     if (!documento.welcome) {
 
-                        const infonembed = new Discord.RichEmbed()
+                        const infonembed = new Discord.MessageEmbed()
                             .setAuthor('👋 • Boas Vindas')
                             .setDescription('Aqui vai uma ajuda!')
                             .addField('**Como definir uma mensagem:**', 'Use k!bemvindo set `Sua mensagem de boas vindas.`')
@@ -58,7 +62,7 @@ exports.run = (bot, message, args) => {
                         message.reply(infonembed)
                     } else {
 
-                        const infocmsg = new Discord.RichEmbed()
+                        const infocmsg = new Discord.MessageEmbed()
                             .setAuthor('👋 • Boas Vindas')
                             .setDescription('Aqui vai as informações sobre este módulo.')
                             .addField('**Mensagem:**', documento.welcomemsg)
@@ -70,12 +74,12 @@ exports.run = (bot, message, args) => {
                 }
             } else {
 
-                const helpe = new Discord.RichEmbed()
+                const helpe = new Discord.MessageEmbed()
                     .setTitle('👋 • Boas Vindas')
                     .setDescription('Aqui vai uma ajuda sobre os comandos desse módulo.')
-                    .addField('**Definir uma mensagem:**', 'k!bemvindo set')
-                    .addField('**Remover uma mensagem:**', 'k!bemvindo remove')
-                    .addField('**Palceholders**', '`{member}` - Menciona o usuário, Exemplo: @membro\n`{guild}` -  fala o nome do servidor.\n`{name}` - fala o nome do usuário sem menciona-lo.')
+                    .addField('**Definir uma mensagem:**', 'la/bemvindo set')
+                    .addField('**Remover uma mensagem:**', 'la/bemvindo remove')
+                    .addField('**Placeholders**', '`{member}` - Menciona o usuário, Exemplo: @membro\n`{guild}` -  fala o nome do servidor.\n`{name}` - fala o nome do usuário sem menciona-lo.')
                 message.reply(helpe)
             }
         } else {

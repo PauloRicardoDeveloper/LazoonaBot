@@ -1,8 +1,7 @@
 const Discord = require('discord.js'); // Pacote discord.js
 
 exports.run = (bot, message, args, func) => {
-
-    let punch = [
+     let punch = [
         "https://media.tenor.com/images/f7b498a905f3e8c964ad5d97bf176e1f/tenor.gif",
         "https://media.tenor.com/images/1175cdf430e96e475d39777bced6798d/tenor.gif",
         "https://media.tenor.com/images/f48c44b3bd26f1f913db0f5a3b2e4e91/tenor.gif",
@@ -37,8 +36,8 @@ exports.run = (bot, message, args, func) => {
     ]
     let punchresult = Math.floor((Math.random() * punch.length));
     if (!args[0]) {
-        const ghembed = new Discord.RichEmbed()
-            .setColor(0xFF0000)
+        const ghembed = new Discord.MessageEmbed()
+            .setColor('')
             .setTitle(`${message.author.username}, Você precisa mencionar alguém.`)
             .setImage('https://media3.giphy.com/media/ArLxZ4PebH2Ug/giphy.gif')
         message.channel.send({
@@ -46,19 +45,19 @@ exports.run = (bot, message, args, func) => {
         })
         return;
     }
-    if (!message.mentions.members.first().user.username === message.isMentioned(message.author)) {
-        const hembed = new Discord.RichEmbed()
+    if (!message.mentions.users.first([0]).user.username === message.isMentioned(message.author)) {
+        const hembed = new Discord.MessageEmbed()
             .setColor(0xFF0000)
-            .setTitle(`${message.author.username} deu um soco em ${message.mentions.members.first().user.username}!`)
+            .setTitle(`${message.author.username} deu um soco em ${message.mentions.members.first([0]).user.username}!`)
             .setImage(punch[punchresult])
         message.channel.send({
             embed: hembed
         })
         return;
     }
-    const ghembed = new Discord.RichEmbed()
+    const ghembed = new Discord.MessageEmbed()
         .setColor(0xFF0000)
-        .setTitle(`${message.author.username}, VOCÊ NÃO PODE DAR UM SOCO EM VOCÊ MESMO, BAKAAAA...`)
+        .setTitle(`${message.author.username}, Você não pode bater em si mesmo!`)
         .setImage('https://media2.giphy.com/media/3uv5ivx6xwqze/giphy.gif')
     message.channel.send({
         embed: ghembed
