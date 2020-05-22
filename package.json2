@@ -1,0 +1,32 @@
+{
+  "name": "project-a",
+  "version": "1.0.0",
+  "description": "Um simples bot para o discord.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Sebola",
+  "license": "MPL2.0",
+  "dependencies": {
+    "@jimp/plugin-fisheye": "^0.12.1",
+    "api-error-handler": "^1.0.0",
+    "bufferutil": "^4.0.1",
+    "canvas": "^2.6.1",
+    "cleverbot-node": "^0.3.11",
+    "color-convert": "^2.0.1",
+    "discord.js": "^12.2.0",
+    "express": "^4.17.1",
+    "jimp": "^0.12.1",
+    "moment": "^2.25.3",
+    "mongoose": "^5.9.13",
+    "node-osu": "^2.2.0",
+    "node-osu-api": "^1.1.9",
+    "os-utils": "0.0.14",
+    "superagent": "^5.2.2",
+    "weather-js": "^2.0.0"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}
