@@ -1,0 +1,10 @@
+{
+  "staff": "clear, mute, unmute, bemvindo, despedida, kick, ban, unban, unmute, tempmute, clear [Alguns ainda em manutenção]",
+  "diversao": "Ainda em constrção",
+  "social": "memberinfo, serverinfo, avatar",
+  "acoes": "kiss, hug, slap, nuzzle, pat, punch",
+  "misc": "clima, say, enquete",
+  "bot": "ping, hoststatus, botinfo, invite, vote",
+  "osu": "osu user, osu best, osu map",
+  "img": "fisheye, firstwords"
+}
