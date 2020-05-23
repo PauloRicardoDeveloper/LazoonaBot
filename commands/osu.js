@@ -1,5 +1,5 @@
 const osu = require("node-osu-api");
-const osuApi = new osu.Api("15406422033bc245f586bfde2136d19de50792df");
+const osuApi = new osu.Api("YOUR_OSU_API_KEY");
 const Discord = require("discord.js");
 var src;
 
