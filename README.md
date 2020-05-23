@@ -11,6 +11,8 @@
 **• mongoose**\
 **• jimp**\
 **• node-osu-api**\
+**• @jimp/plugin-fisheye**\
+**• weather-js**\
 **• Node.Js 10x (or upper)**
 
 #### Preparing the files
