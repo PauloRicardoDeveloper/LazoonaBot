@@ -1,4 +1,4 @@
 {
-    "token": "token",
-    "prefix": "k!"
+    "token": "YOUR_BOT_TOKEN",
+    "prefix": "la/"
 }
