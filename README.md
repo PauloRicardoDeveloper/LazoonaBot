@@ -22,3 +22,5 @@ Install Dependencies: `$npm install`\
 Run file: `$node index.js`
 
 ## Done! Lazoona is running!
+
+<img src="https://cdn.discordapp.com/avatars/625374033365565465/58510fbce2f9b17a1c1425715e097775.webp?size=1280">
