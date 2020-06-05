@@ -1,5 +1,5 @@
 # Lazoona Bot
-[Discord](https:://discordapp.com) chatbot project still in testing.
+[Discord](https://discordapp.com) chatbot project still in testing.
 
 ### Informations
 **Language:** JavaScript\
