@@ -1,10 +1,19 @@
 # Lazoona Bot
-[Discord](https://discordapp.com) chatbot project still in testing.
+
+
+
+
+# DEPRECATED
+
+
+
+
+
 
 ### Informations
 **Language:** JavaScript\
 **Workers:** Node.Js 12x\
-#DEPRECATED
+
 
 ### Deploying Lazoona
 #### Dependencies:
