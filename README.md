@@ -3,7 +3,8 @@
 
 ### Informations
 **Language:** JavaScript\
-**Workers:** Node.Js 12x
+**Workers:** Node.Js 12x\
+#DEPRECATED
 
 ### Deploying Lazoona
 #### Dependencies:
